@@ -442,6 +442,11 @@
           "name" : "SPARK_CLIENT"
         },
         {% endif -%}
+        {% if install_spark2 == true -%}
+        {
+          "name" : "SPARK2_CLIENT"
+        },
+        {% endif -%}
         {% if install_hbase == true -%}
         {
           "name" : "HBASE_CLIENT"
@@ -603,6 +608,17 @@
           "name" : "SPARK_CLIENT"
         },
         {% endif -%}
+        {% if install_spark2 == true -%}
+        {
+          "name" : "SPARK2_JOBHISTORYSERVER"
+        },
+        {
+          "name" : "SPARK2_THRIFTSERVER"
+        },
+        {
+          "name" : "SPARK2_CLIENT"
+        },
+        {% endif -%}
         {% if install_hbase == true -%}
         {
           "name" : "HBASE_CLIENT"
@@ -698,6 +714,11 @@
         {% if install_spark == true -%}
         {
           "name" : "SPARK_CLIENT"
+        },
+        {% endif -%}
+        {% if install_spark2 == true -%}
+        {
+          "name" : "SPARK2_CLIENT"
         },
         {% endif -%}
         {% if install_hbase == true -%}
@@ -801,6 +822,11 @@
           "name" : "SPARK_CLIENT"
         },
         {% endif -%}
+        {% if install_spark2 == true -%}
+        {
+          "name" : "SPARK2_CLIENT"
+        },
+        {% endif -%}
         {% if install_hbase == true -%}
         {
           "name" : "HBASE_CLIENT"
@@ -873,6 +899,11 @@
         {% if install_spark == true -%}
         {
           "name" : "SPARK_CLIENT"
+        },
+        {% endif -%}
+        % if install_spark2 == true -%}
+        {
+          "name" : "SPARK2_CLIENT"
         },
         {% endif -%}
         {% if install_hbase == true -%}
