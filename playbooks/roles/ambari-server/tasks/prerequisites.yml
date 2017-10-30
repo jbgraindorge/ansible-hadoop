@@ -26,7 +26,7 @@
   with_items:
     - mysql-server
   notify: Reload systemd
-  when: ansible_os_family == "RedHat"
+  when: (ansible_os_family == "RedHat" and {{ ansible_nodename }} in master-nodes)
 
 - name: Ensure required (mysql-server) packages are installed (apt)
   apt:
@@ -35,11 +35,12 @@
     state: installed
   with_items:
     - mysql-server
-  when: ansible_os_family == "Debian"
+  when: (ansible_os_family == "Debian" and {{ ansible_nodename }} in master-nodes)
   
 - name: Fix MySQL listening interface
   shell: sed -i 's/127.0.0.1/0.0.0.0/' /etc/mysql/mysql.conf.d/mysqld.cnf;
-
+  when: {{ ansible_nodename }} in master-nodes
+  
 - include: unbound-dns.yml
   when: use_dns
 
