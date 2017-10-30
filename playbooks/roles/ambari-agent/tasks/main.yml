@@ -11,7 +11,29 @@
 
 - name: Download the Ambari repo
   get_url: url={{ ambari_repo }} dest={{ ambari_repo_file }}
+  
+- name: Ensure required (mysql-server) packages are installed (yum)
+  yum:
+    name: "{{ item }}"
+    update_cache: yes
+    state: installed
+  with_items:
+    - mysql-server
+  notify: Reload systemd
+  when: ansible_os_family == "RedHat"
 
+- name: Ensure required (mysql-server) packages are installed (apt)
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+    state: installed
+  with_items:
+    - mysql-server
+  when: ansible_os_family == "Debian"
+  
+- name: Fix MySQL listening interface
+  shell: sed -i 's/127.0.0.1/0.0.0.0/' /etc/mysql/mysql.conf.d/mysqld.cnf;
+  
 - name: Add apt key
   apt_key: keyserver=keyserver.ubuntu.com id={{ ambari_repo_key }}
   when: ansible_os_family == "Debian"
