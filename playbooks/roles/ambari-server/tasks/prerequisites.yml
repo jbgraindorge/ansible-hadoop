@@ -1,5 +1,5 @@
 ---
-- name: Ensure required packages are installed (yum)
+- name: Ensure required (ambari-server) packages are installed (yum)
   yum:
     name: "{{ item }}"
     update_cache: yes
@@ -9,13 +9,32 @@
   notify: Reload systemd
   when: ansible_os_family == "RedHat"
 
-- name: Ensure required packages are installed (apt)
+- name: Ensure required (ambari-server) packages are installed (apt)
   apt:
     name: "{{ item }}"
     update_cache: yes
     state: installed
   with_items:
     - ambari-server
+  when: ansible_os_family == "Debian"
+  
+- name: Ensure required (mysql-server) packages are installed (yum)
+  yum:
+    name: "{{ item }}"
+    update_cache: yes
+    state: installed
+  with_items:
+    - mysql-server
+  notify: Reload systemd
+  when: ansible_os_family == "RedHat"
+
+- name: Ensure required (mysql-server) packages are installed (apt)
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+    state: installed
+  with_items:
+    - mysql-server
   when: ansible_os_family == "Debian"
 
 - include: unbound-dns.yml
