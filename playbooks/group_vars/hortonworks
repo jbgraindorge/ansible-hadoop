@@ -1,7 +1,7 @@
 ---
 cluster_name: 'hadoop-poc'
 adminnode: 'ambari-node' 
-hdp_version: '2.5'
+hdp_version: '2.6'
 ambari_version: '2.4.2.0'
 admin_password: 'admin'
 services_password: 'AsdQwe123'
@@ -11,7 +11,7 @@ wait_timeout: 1800   # 30 minutes
 
 install_spark: true
 install_spark2: true
-install_zeppelin: false # >= HDP2_5
+install_zeppelin: true
 install_flume: true
 install_hbase: true
 install_storm: true
