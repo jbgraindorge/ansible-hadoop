@@ -27,6 +27,7 @@
   shell: /usr/sbin/ambari-server setup -s
 
 - name: Make sure ambari-server is running
+  become: yes
   command: service ambari-server restart
 
 - name: Waiting for ambari-server to start listening on port 8080
