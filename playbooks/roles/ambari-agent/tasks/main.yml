@@ -70,4 +70,4 @@
   service: name=ambari-agent state=started enabled=yes
   
 - name: Make sure mysql-server is running
-  service: name=mysqld state=restarted enabled=yes
+  service: name=mysql state=restarted enabled=yes
