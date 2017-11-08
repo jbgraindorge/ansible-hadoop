@@ -248,7 +248,7 @@
         }
       }
     },
-    
+
     {
       "zeppelin-env" : {
         "properties_attributes" : { },
@@ -468,11 +468,9 @@
         {
           "name" : "TEZ_CLIENT"
         },
-        {% if install_falcon == true -%}
         {
           "name" : "FALCON_CLIENT"
         },
-        {% endif -%}
         {
           "name" : "SLIDER"
         },
@@ -499,22 +497,15 @@
         {
           "name" : "NAMENODE"
         },
-        {% if install_flume == true -%}
         {
           "name" : "FLUME_HANDLER"
         },
-        {% endif -%}
-        {% if install_spark == true -%}
         {
           "name" : "SPARK_CLIENT"
         },
-        {% endif -%}
-        {% if install_hbase == true -%}
         {
           "name" : "HBASE_CLIENT"
         },
-        {% endif -%}
-        {% if install_storm == true -%}
         {
           "name" : "STORM_UI_SERVER"
         },
@@ -524,12 +515,9 @@
         {
           "name" : "NIMBUS"
         },
-        {% endif -%}
-        {% if install_kafka == true -%}
         {
           "name" : "KAFKA_BROKER"
         },
-        {% endif -%}
         {% if arcadia == true -%}
         {
           "name" : "ARCENGINE_STATESTORE"
@@ -541,16 +529,15 @@
           "name" : "ARCENGINE_CATALOG"
         },
         {% endif -%}
-        {% if  ambari_version >= "2.2.2" -%}
         {
           "name" : "METRICS_MONITOR"
         },
-        {% endif -%}
-        {% if  ambari_version >= "2.4.0" -%}
         {
           "name" : "LOGSEARCH_LOGFEEDER"
         },
-        {% endif -%}
+        {
+          "name" : "MYSQL_SERVER"
+        },
         {
           "name" : "HIVE_SERVER"
         }
@@ -591,52 +578,41 @@
         {
           "name" : "SLIDER"
         },
-        {% if install_spark == true -%}
         {
           "name" : "SPARK_CLIENT"
         },
-        {% endif -%}
-        {% if install_hbase == true -%}
+        {
+          "name" : "SPARK2_CLIENT"
+        },
         {
           "name" : "HBASE_CLIENT"
         },
-        {% endif -%}
-        {% if install_storm == true -%}
         {
           "name" : "SUPERVISOR"
         },
-        {% endif -%}
-        {% if install_falcon == true -%}
         {
           "name" : "FALCON_CLIENT"
         },
-        {% endif -%}
         {
           "name" : "NODEMANAGER"
         },
         {
           "name" : "DATANODE"
         },
-        {% if install_hbase == true -%}
         {
           "name" : "HBASE_REGIONSERVER"
         },
-        {% endif -%}
         {% if arcadia == true -%}
         {
           "name" : "ARCENGINE"
         },
         {% endif -%}
-        {% if  ambari_version >= "2.2.2" -%}
         {
           "name" : "METRICS_MONITOR"
         },
-        {% endif -%}
-        {% if  ambari_version >= "2.4.0" -%}
         {
           "name" : "LOGSEARCH_LOGFEEDER"
         },
-        {% endif -%}
         {
           "name" : "TEZ_CLIENT"
         }
@@ -683,28 +659,21 @@
         {
           "name" : "ZOOKEEPER_SERVER"
         },
-        {% if install_kafka == true -%}
-        { 
+        {
           "name" : "KAFKA_BROKER"
         },
-        {% endif -%}
-        {% if install_zeppelin == true -%}
         {
           "name" : "ZEPPELIN_MASTER"
         },
-        {% endif -%}
         {
           "name" : "AMBARI_SERVER"
         },
-        {% if  ambari_version >= "2.2.2" -%}
         {
           "name" : "METRICS_COLLECTOR"
         },
         {
           "name" : "METRICS_GRAFANA"
         },
-        {% endif -%}
-        {% if  ambari_version >= "2.4.0" -%}
         {
           "name" : "INFRA_SOLR_CLIENT"
         },
@@ -714,45 +683,47 @@
         {
           "name" : "LOGSEARCH_SERVER"
         },
-        {% endif -%}
         {% if hdfs.ha_namenode -%}
         {
           "name" : "JOURNALNODE"
         },
         {% endif -%}
-        {% if install_flume == true -%}
         {
           "name" : "FLUME_HANDLER"
         },
-        {% endif -%}
-        {% if install_spark == true -%}
         {
           "name" : "SPARK_CLIENT"
         },
-        {% endif -%}
-        {% if install_hbase == true -%}
+        {
+          "name" : "SPARK2_CLIENT"
+        },
         {
           "name" : "HBASE_CLIENT"
         },
-        {% endif -%}
-        {% if install_falcon == true -%}
         {
           "name" : "FALCON_SERVER"
         },
         {
           "name" : "FALCON_CLIENT"
         },
-        {% endif -%}
-        {% if  ambari_version >= "2.2.2" -%}
         {
           "name" : "METRICS_MONITOR"
         },
-        {% endif -%}
-        {% if  ambari_version >= "2.4.0" -%}
         {
           "name" : "LOGSEARCH_LOGFEEDER"
         },
-        {% endif -%}
+        {
+          "name" : "SPARK_CLIENT"
+        },
+        {
+          "name" : "SPARK2_CLIENT"
+        },
+        {
+          "name" : "MAHOUT"
+        },
+        {
+          "name" : "MYSQL_SERVER"
+        },
         {
           "name" : "OOZIE_SERVER"
         }
@@ -870,22 +841,18 @@
         {
           "name" : "TEZ_CLIENT"
         },
-        {% if install_falcon == true -%}
         {
           "name" : "FALCON_CLIENT"
         },
-        {% endif -%}
         {
           "name" : "SLIDER"
         },
         {
           "name" : "ZOOKEEPER_SERVER"
         },
-        {% if install_kafka == true -%}
         {
           "name" : "KAFKA_BROKER"
         },
-        {% endif -%}
         {
           "name" : "HISTORYSERVER"
         },
@@ -904,12 +871,9 @@
           "name" : "SECONDARY_NAMENODE"
         },
         {% endif -%}
-        {% if install_flume == true -%}
         {
           "name" : "FLUME_HANDLER"
         },
-        {% endif -%}
-        {% if install_spark == true -%}
         {
           "name" : "SPARK_JOBHISTORYSERVER"
         },
@@ -919,27 +883,35 @@
         {
           "name" : "SPARK_CLIENT"
         },
-        {% endif -%}
-        {% if install_hbase == true -%}
+        {
+          "name" : "SPARK2_JOBHISTORYSERVER"
+        },
+        {
+          "name" : "SPARK2_THRIFTSERVER"
+        },
+        {
+          "name" : "SPARK2_CLIENT"
+        },
         {
           "name" : "HBASE_CLIENT"
         },
         {
           "name" : "HBASE_MASTER"
         },
-        {% endif -%}
-        {% if  ambari_version >= "2.2.2" -%}
         {
           "name" : "METRICS_MONITOR"
         },
-        {% endif -%}
-        {% if  ambari_version >= "2.2.2" -%}
         {
           "name" : "LOGSEARCH_LOGFEEDER"
         },
-        {% endif -%}
         {
           "name" : "APP_TIMELINE_SERVER"
+        },
+        {
+          "name" : "MYSQL_SERVER"
+        },
+        {
+          "name" : "KNOX_GATEWAY"
         },
         {
           "name" : "RESOURCEMANAGER"
